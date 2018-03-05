@@ -24,7 +24,7 @@
           Type
         </label>
 
-        <input type="text" id="type_id" name="type_id" placeholder="Type" class="form-control" value="<%= @listing.type_id %>">
+        <%= select_tag(:type_id, options_from_collection_for_select(Type.all, :id, :name, @listing.type_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for category_id -->
