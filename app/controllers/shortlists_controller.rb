@@ -1,4 +1,14 @@
 class ShortlistsController < ApplicationController
+  before_action :current_user_must_be_shortlist_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_shortlist_user
+    shortlist = Shortlist.find(params[:id])
+
+    unless current_user == shortlist.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @shortlists = Shortlist.all
 
