@@ -10,7 +10,8 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.page(params[:page]).per(10)
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result(:distinct => true).includes(:user, :shortlists, :category, :type).page(params[:page]).per(10)
 
     render("listings/index.html.erb")
   end

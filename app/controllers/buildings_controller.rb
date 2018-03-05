@@ -1,6 +1,7 @@
 class BuildingsController < ApplicationController
   def index
-    @buildings = Building.page(params[:page]).per(10)
+    @q = Building.ransack(params[:q])
+    @buildings = @q.result(:distinct => true).includes(:users).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@buildings.where.not(:address_latitude => nil)) do |building, marker|
       marker.lat building.address_latitude
       marker.lng building.address_longitude

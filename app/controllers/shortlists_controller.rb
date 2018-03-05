@@ -10,7 +10,8 @@ class ShortlistsController < ApplicationController
   end
 
   def index
-    @shortlists = current_user.interests.page(params[:page]).per(10)
+    @q = current_user.interests.ransack(params[:q])
+      @shortlists = @q.result(:distinct => true).includes(:user, :listing).page(params[:page]).per(10)
 
     render("shortlists/index.html.erb")
   end

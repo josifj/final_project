@@ -1,6 +1,7 @@
 class TypesController < ApplicationController
   def index
-    @types = Type.page(params[:page]).per(10)
+    @q = Type.ransack(params[:q])
+    @types = @q.result(:distinct => true).includes(:category, :listings).page(params[:page]).per(10)
 
     render("types/index.html.erb")
   end
