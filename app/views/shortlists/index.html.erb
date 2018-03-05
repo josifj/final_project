@@ -17,7 +17,7 @@
       <% @shortlists.each do |shortlist| %>
       <tr>
         <td><%= shortlist.user.id %></td>
-        <td><%= shortlist.listing_id %></td>
+        <td><%= shortlist.listing.id %></td>
         <td>
           <a href="/shortlists/<%= shortlist.id %>" class="btn btn-primary">Show</a>
           <a href="/shortlists/<%= shortlist.id %>/edit" class="btn btn-warning">Edit</a>
