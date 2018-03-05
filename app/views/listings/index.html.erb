@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>
+    Listings
+    <a href="/listings/new" class="btn btn-lg btn-success">New Listing</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>User</th>
+        <th>Images</th>
+        <th>Purchase date</th>
+        <th>Link</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.type_id %></td>
+        <td><%= listing.category_id %></td>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.user_id %></td>
+        <td><%= listing.images %></td>
+        <td><%= listing.purchase_date %></td>
+        <td><%= listing.link %></td>
+        <td><%= listing.status %></td>
+        <td>
+          <a href="/listings/<%= listing.id %>" class="btn btn-primary">Show</a>
+          <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

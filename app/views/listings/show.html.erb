@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h3>Listing #<%= @listing.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Type</dt>
+      <dd><%= @listing.type_id %></dd>
+
+      <dt>Category</dt>
+      <dd><%= @listing.category_id %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @listing.name %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @listing.description %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @listing.price %></dd>
+
+      <dt>User</dt>
+      <dd><%= @listing.user_id %></dd>
+
+      <dt>Images</dt>
+      <dd><%= @listing.images %></dd>
+
+      <dt>Purchase date</dt>
+      <dd><%= @listing.purchase_date %></dd>
+
+      <dt>Link</dt>
+      <dd><%= @listing.link %></dd>
+
+      <dt>Status</dt>
+      <dd><%= @listing.status %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/listings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/listings/<%= @listing.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_listing/<%= @listing.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

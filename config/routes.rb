@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Listing resource:
+  # CREATE
+  get "/listings/new", :controller => "listings", :action => "new"
+  post "/create_listing", :controller => "listings", :action => "create"
+
+  # READ
+  get "/listings", :controller => "listings", :action => "index"
+  get "/listings/:id", :controller => "listings", :action => "show"
+
+  # UPDATE
+  get "/listings/:id/edit", :controller => "listings", :action => "edit"
+  post "/update_listing/:id", :controller => "listings", :action => "update"
+
+  # DELETE
+  get "/delete_listing/:id", :controller => "listings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Building resource:
   # CREATE
   get "/buildings/new", :controller => "buildings", :action => "new"
