@@ -1,4 +1,6 @@
 ActiveAdmin.register Listing do
+
+ permit_params :type_id, :category_id, :name, :description, :price, :user_id, :images, :purchase_date, :link, :status
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
