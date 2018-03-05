@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "buildings#index"
   # Routes for the Shortlist resource:
   # CREATE
   get "/shortlists/new", :controller => "shortlists", :action => "new"
