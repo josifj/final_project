@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  belongs_to :type,
+             :counter_cache => true
+
   belongs_to :category,
              :counter_cache => true
 
