@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @shortlist = Shortlist.new
     @listing = Listing.find(params[:id])
 
     render("listings/show.html.erb")

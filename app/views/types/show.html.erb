@@ -54,6 +54,94 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_listing" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for type_id -->
+      <input type="hidden" name="type_id" value="<%= @type.id %>">
+
+      <!-- Label and input for category_id -->
+      <div class="form-group">
+        <label for="category_id" class="control-label">
+          Category
+        </label>
+
+        <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for images -->
+      <div class="form-group">
+        <label for="images" class="control-label">
+          Images
+        </label>
+
+        <input type="file" id="images" name="images" class="form-control">
+      </div>
+
+      <!-- Label and input for purchase_date -->
+      <div class="form-group">
+        <label for="purchase_date" class="control-label">
+          Purchase date
+        </label>
+
+        <input type="text" id="purchase_date" name="purchase_date" placeholder="Purchase date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for link -->
+      <div class="form-group">
+        <label for="link" class="control-label">
+          Link
+        </label>
+
+        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="checkbox">
+        <label for="status">
+          <input type="checkbox" id="status" name="status" value="1" <%= "checked" if @listing.status %>>
+          Status
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Listing
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
