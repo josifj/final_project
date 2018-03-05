@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :building,
+             :required => false,
+             :counter_cache => true
+
   has_many   :interests,
              :class_name => "Shortlist",
              :dependent => :destroy
