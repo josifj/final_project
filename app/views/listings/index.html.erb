@@ -36,8 +36,11 @@
         <td><%= listing.status %></td>
         <td>
           <a href="/listings/<%= listing.id %>" class="btn btn-primary">Show</a>
-          <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == listing.user %>
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
