@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  mount_uploader :images, ImageUploader
+
   # Direct associations
 
   belongs_to :type,
