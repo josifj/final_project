@@ -10,7 +10,7 @@ class ShortlistsController < ApplicationController
   end
 
   def index
-    @shortlists = Shortlist.all
+    @shortlists = current_user.interests.page(params[:page]).per(10)
 
     render("shortlists/index.html.erb")
   end
