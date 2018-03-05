@@ -24,12 +24,30 @@
 
       <% @listings.each do |listing| %>
       <tr>
-        <td><%= listing.type.name %></td>
-        <td><%= listing.category.name %></td>
+        <td>
+          <% if listing.type.present? %>
+            <a href="/types/<%= listing.type.id %>">
+              <%= listing.type.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if listing.category.present? %>
+            <a href="/categories/<%= listing.category.id %>">
+              <%= listing.category.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listing.name %></td>
         <td><%= listing.description %></td>
         <td><%= listing.price %></td>
-        <td><%= listing.user.id %></td>
+        <td>
+          <% if listing.user.present? %>
+            <a href="/users/<%= listing.user.id %>">
+              <%= listing.user.id %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= listing.images %>' class='img-responsive'></td>
         <td><%= listing.purchase_date %></td>
         <td><%= listing.link %></td>

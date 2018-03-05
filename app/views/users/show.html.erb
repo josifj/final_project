@@ -31,7 +31,13 @@
       </dd>
 
       <dt>Building</dt>
-      <dd><%= @user.building_id %></dd>
+      <dd>
+        <% if @user.building.present? %>
+          <a href="/buildings/<%= @user.building_id %>">
+            <%= @user.building.id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Apt no</dt>
       <dd><%= @user.apt_no %></dd>

@@ -9,7 +9,13 @@
       <dd><%= @type.name %></dd>
 
       <dt>Category</dt>
-      <dd><%= @type.category_id %></dd>
+      <dd>
+        <% if @type.category.present? %>
+          <a href="/categories/<%= @type.category_id %>">
+            <%= @type.category.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Type</dt>
-      <dd><%= @listing.type_id %></dd>
+      <dd>
+        <% if @listing.type.present? %>
+          <a href="/types/<%= @listing.type_id %>">
+            <%= @listing.type.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Category</dt>
-      <dd><%= @listing.category_id %></dd>
+      <dd>
+        <% if @listing.category.present? %>
+          <a href="/categories/<%= @listing.category_id %>">
+            <%= @listing.category.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @listing.name %></dd>
@@ -21,7 +33,13 @@
       <dd><%= @listing.price %></dd>
 
       <dt>User</dt>
-      <dd><%= @listing.user_id %></dd>
+      <dd>
+        <% if @listing.user.present? %>
+          <a href="/users/<%= @listing.user_id %>">
+            <%= @listing.user.id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Images</dt>
       <dd><img src="<%= @listing.images %>" class="img-responsive"></dd>

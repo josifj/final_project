@@ -16,8 +16,20 @@
 
       <% @shortlists.each do |shortlist| %>
       <tr>
-        <td><%= shortlist.user.id %></td>
-        <td><%= shortlist.listing.id %></td>
+        <td>
+          <% if shortlist.user.present? %>
+            <a href="/users/<%= shortlist.user.id %>">
+              <%= shortlist.user.id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if shortlist.listing.present? %>
+            <a href="/listings/<%= shortlist.listing.id %>">
+              <%= shortlist.listing.id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/shortlists/<%= shortlist.id %>" class="btn btn-primary">Show</a>
           

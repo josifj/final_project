@@ -40,7 +40,13 @@
         <td><%= user.admin %></td>
         <td><%= user.phone_number %></td>
         <td><%= user.address %></td>
-        <td><%= user.building.id %></td>
+        <td>
+          <% if user.building.present? %>
+            <a href="/buildings/<%= user.building.id %>">
+              <%= user.building.id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= user.apt_no %></td>
         <td><%= user.cal_id %></td>
         <td>
