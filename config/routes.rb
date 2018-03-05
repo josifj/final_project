@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Shortlist resource:
+  # CREATE
+  get "/shortlists/new", :controller => "shortlists", :action => "new"
+  post "/create_shortlist", :controller => "shortlists", :action => "create"
+
+  # READ
+  get "/shortlists", :controller => "shortlists", :action => "index"
+  get "/shortlists/:id", :controller => "shortlists", :action => "show"
+
+  # UPDATE
+  get "/shortlists/:id/edit", :controller => "shortlists", :action => "edit"
+  post "/update_shortlist/:id", :controller => "shortlists", :action => "update"
+
+  # DELETE
+  get "/delete_shortlist/:id", :controller => "shortlists", :action => "destroy"
+  #------------------------------
+
   # Routes for the Type resource:
   # CREATE
   get "/types/new", :controller => "types", :action => "new"
