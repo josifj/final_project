@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  belongs_to :category,
+             :counter_cache => true
+
   has_many   :shortlists,
              :dependent => :nullify
 
