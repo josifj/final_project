@@ -44,3 +44,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many listings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listings
+      </li>
+
+      <% @user.listings.each do |listing| %>
+        <li class="list-group-item">
+          <a href="/listings/<%= listing.id %>">
+            <%= listing.id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listings/<%= listing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many interests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Interests
+      </li>
+
+      <% @user.interests.each do |shortlist| %>
+        <li class="list-group-item">
+          <a href="/shortlists/<%= shortlist.id %>">
+            <%= shortlist.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/shortlists/<%= shortlist.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/shortlists/<%= shortlist.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_shortlist/<%= shortlist.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

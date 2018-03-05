@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Category has many listings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listings
+      </li>
+
+      <% @category.listings.each do |listing| %>
+        <li class="list-group-item">
+          <a href="/listings/<%= listing.id %>">
+            <%= listing.id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listings/<%= listing.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Category has many types -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Types
+      </li>
+
+      <% @category.types.each do |type| %>
+        <li class="list-group-item">
+          <a href="/types/<%= type.id %>">
+            <%= type.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/types/<%= type.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/types/<%= type.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_type/<%= type.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
