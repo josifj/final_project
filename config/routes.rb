@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Type resource:
+  # CREATE
+  get "/types/new", :controller => "types", :action => "new"
+  post "/create_type", :controller => "types", :action => "create"
+
+  # READ
+  get "/types", :controller => "types", :action => "index"
+  get "/types/:id", :controller => "types", :action => "show"
+
+  # UPDATE
+  get "/types/:id/edit", :controller => "types", :action => "edit"
+  post "/update_type/:id", :controller => "types", :action => "update"
+
+  # DELETE
+  get "/delete_type/:id", :controller => "types", :action => "destroy"
+  #------------------------------
+
   # Routes for the Category resource:
   # CREATE
   get "/categories/new", :controller => "categories", :action => "new"
