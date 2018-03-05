@@ -47,8 +47,6 @@ class ShortlistsController < ApplicationController
 
   def update
     @shortlist = Shortlist.find(params[:id])
-
-    @shortlist.user_id = params[:user_id]
     @shortlist.listing_id = params[:listing_id]
 
     save_status = @shortlist.save
